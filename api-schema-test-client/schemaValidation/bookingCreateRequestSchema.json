@@ -1,0 +1,259 @@
+
+
+{
+  "$schema": "http://json-schema.org/draft-04/schema#", 
+  "definitions": {}, 
+  "id": "http://example.com/example.json", 
+  "properties": {
+    "addresses": {
+      "id": "/properties/addresses", 
+      "items": {
+        "id": "/properties/addresses/items", 
+        "properties": {
+          "address": {
+            "id": "/properties/addresses/items/properties/address", 
+            "type": "string"
+          }, 
+          "category": {
+            "id": "/properties/addresses/items/properties/category", 
+            "type": "string"
+          }, 
+          "location": {
+            "id": "/properties/addresses/items/properties/location", 
+            "properties": {
+              "lat": {
+                "id": "/properties/addresses/items/properties/location/properties/lat", 
+                "type": "number"
+              }, 
+              "lng": {
+                "id": "/properties/addresses/items/properties/location/properties/lng", 
+                "type": "number"
+              }
+            }, 
+            "required": [
+              "lng", 
+              "lat"
+            ], 
+            "type": "object"
+          }, 
+          "type": {
+            "id": "/properties/addresses/items/properties/type", 
+            "type": "integer"
+          }
+        }, 
+        "required": [
+          "address", 
+          "location", 
+          "type", 
+          "category"
+        ], 
+        "type": "object"
+      }, 
+      "type": "array"
+    }, 
+    "ageGroups": {
+      "id": "/properties/ageGroups", 
+      "items": {
+        "id": "/properties/ageGroups/items", 
+        "properties": {
+          "count": {
+            "id": "/properties/ageGroups/items/properties/count", 
+            "type": "integer"
+          }, 
+          "maxAge": {
+            "id": "/properties/ageGroups/items/properties/maxAge", 
+            "type": "integer"
+          }, 
+          "minAge": {
+            "id": "/properties/ageGroups/items/properties/minAge", 
+            "type": "integer"
+          }
+        }, 
+        "required": [
+          "maxAge", 
+          "minAge", 
+          "count"
+        ], 
+        "type": "object"
+      }, 
+      "type": "array"
+    }, 
+    "bookingRefId": {
+      "id": "/properties/bookingRefId", 
+      "type": "string"
+    }, 
+    "createProperty": {
+      "id": "/properties/createProperty", 
+      "properties": {
+        "leg": {
+          "id": "/properties/createProperty/properties/leg", 
+          "type": "string"
+        }, 
+        "reference": {
+          "id": "/properties/createProperty/properties/reference", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "leg", 
+        "reference"
+      ], 
+      "type": "object"
+    }, 
+    "flights": {
+      "id": "/properties/flights", 
+      "items": {
+        "id": "/properties/flights/items", 
+        "properties": {
+          "dateTime": {
+            "id": "/properties/flights/items/properties/dateTime", 
+            "type": "string"
+          }, 
+          "trackingNumber": {
+            "id": "/properties/flights/items/properties/trackingNumber", 
+            "type": "string"
+          }, 
+          "type": {
+            "id": "/properties/flights/items/properties/type", 
+            "type": "integer"
+          }
+        }, 
+        "required": [
+          "dateTime", 
+          "type", 
+          "trackingNumber"
+        ], 
+        "type": "object"
+      }, 
+      "type": "array"
+    }, 
+    "notes": {
+      "id": "/properties/notes", 
+      "type": "string"
+    }, 
+    "passengers": {
+      "id": "/properties/passengers", 
+      "items": {
+        "id": "/properties/passengers/items", 
+        "properties": {
+          "email": {
+            "id": "/properties/passengers/items/properties/email", 
+            "type": "string"
+          }, 
+          "name": {
+            "id": "/properties/passengers/items/properties/name", 
+            "type": "string"
+          }, 
+          "phone": {
+            "id": "/properties/passengers/items/properties/phone", 
+            "type": ["string", "number"]
+          }
+        }, 
+        "required": [
+          "email", 
+          "name", 
+          "phone"
+        ], 
+        "type": "object"
+      }, 
+      "type": "array"
+    }, 
+    "pickupDateTime": {
+      "id": "/properties/pickupDateTime", 
+      "type": "string"
+    }, 
+    "price": {
+      "id": "/properties/price", 
+      "properties": {
+        "services": {
+          "id": "/properties/price/properties/services", 
+          "type": "number"
+        }, 
+        "supplier": {
+          "id": "/properties/price/properties/supplier", 
+          "type": "number"
+        }, 
+        "total": {
+          "id": "/properties/price/properties/total", 
+          "type": "number"
+        }
+      }, 
+      "required": [
+        "total", 
+        "services", 
+        "supplier"
+      ], 
+      "type": "object"
+    }, 
+    "product": {
+      "id": "/properties/product", 
+      "properties": {
+        "bags": {
+          "id": "/properties/product/properties/bags", 
+          "type": "integer"
+        }, 
+        "category": {
+          "id": "/properties/product/properties/category", 
+          "type": "integer"
+        }, 
+        "pax": {
+          "id": "/properties/product/properties/pax", 
+          "type": "integer"
+        }, 
+        "properties": {
+          "id": "/properties/product/properties/properties", 
+          "items": {
+            "id": "/properties/product/properties/properties/items", 
+            "properties": {
+              "numberValue": {
+                "id": "/properties/product/properties/properties/items/properties/numberValue", 
+                "type": "integer"
+              }, 
+              "type": {
+                "id": "/properties/product/properties/properties/items/properties/type", 
+                "type": "integer"
+              }
+            }, 
+            "required": [
+              "type", 
+              "numberValue"
+            ], 
+            "type": "object"
+          }, 
+          "type": "array"
+        }, 
+        "type": {
+          "id": "/properties/product/properties/type", 
+          "type": "integer"
+        }
+      }, 
+      "required": [
+        "bags", 
+        "properties", 
+        "type", 
+        "pax", 
+        "category"
+      ], 
+      "type": "object"
+    }, 
+    "rateId": {
+      "id": "/properties/rateId", 
+      "type": "string"
+    }, 
+    "shortId": {
+      "id": "/properties/shortId", 
+      "type": "string"
+    }
+  }, 
+  "required": [
+    "price",    
+    "pickupDateTime", 
+    "shortId", 
+    "bookingRefId",   
+    "addresses",   
+    "product", 
+    "passengers"
+  ], 
+  "type": "object"
+}
+

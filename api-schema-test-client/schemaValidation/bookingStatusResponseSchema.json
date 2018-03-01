@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#", 
+  "definitions": {}, 
+  "id": "http://example.com/example.json", 
+  "properties": {
+    "state": {
+      "id": "/properties/state", 
+      "type": "string"
+    }, 
+    "status": {
+      "id": "/properties/status", 
+      "type": "string"
+    }
+  }, 
+  "required": [
+    "state", 
+    "status"
+  ], 
+  "type": "object"
+}
+
