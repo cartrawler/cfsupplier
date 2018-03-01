@@ -87,8 +87,8 @@ using test.sh
 
 #### using test.rb ####
 
+```
 ruby dependencyChecker.rb (required at least a hit)
-
 ruby test.rb <v1> <v2> e.g.
 ruby test.rb 1 : performing search test
 ruby test.rb 2 : performing create test
@@ -96,22 +96,24 @@ ruby test.rb 3 6aef2eb29e89eedb912276b159f237d2 : performing cancel test
 ruby test.rb 4 6aef2eb29e89eedb912276b159f237d2 : performing status test
 ruby test.rb 5 : performing complete test
 ruby test.rb 6 2 : performing performance test with 2 thread in a second
-
+```
 
 ### Outputs ###
 
 ./test.sh 1
 
 Search Request  Schema Validataion = true
-received 5 offers
+ - received 5 offers
+
 Search Response  Schema Validataion = true
 
 ./test.sh 2
 
 Search Request  Schema Validataion = true
-received 5 offers
+ - received 5 offers
 
 Search Response  Schema Validataion = true
+
 now selecting one of the offer and creating a booking
 
 data used for creating booking
@@ -121,7 +123,9 @@ data used for creating booking
 ```
 
 Create Request  Schema Validataion = true
+
 now creating the booking
+
 supplierBookingRefId =59c5080269e53c3100727c26
 
 Create Response  Schema Validataion = true
@@ -129,21 +133,27 @@ Create Response  Schema Validataion = true
 ./test.sh 3 afbb086daa16fc97e0d70a221c281a96
 
 Cancel Request  Schema Validataion = true
+
 Cancel Response  Schema Validataion = true
 
 ./test.sh 4 afbb086daa16fc97e0d70a221c281a96
 
 checking status of = afbb086daa16fc97e0d70a221c281a96
+
 Status Request  Schema Validataion = true
+
 Status Response  Schema Validataion = true
 
 ./test.sh 5
 
 Search Request  Schema Validataion = true
+
 received 5 offers
 
 Search Response  Schema Validataion = true
+
 now selecting one of the offer and creating a booking
+
 data used for creating booking
 
 ```
@@ -151,19 +161,27 @@ data used for creating booking
 ```
 
 Create Request  Schema Validataion = true
+
 now creating the booking
+
 supplierBookingRefId =59c5086f69e53c3100727c27
 
 Create Response  Schema Validataion = true
+
 checking status of = 3ddc37d12fdc20d9b7520199df03e75d
 
 Status Request  Schema Validataion = true
+
 Status Response  Schema Validataion = true
+
 Cancel Request  Schema Validataion = true
+
 Cancel Response  Schema Validataion = true
+
 checking status of = 3ddc37d12fdc20d9b7520199df03e75d
 
 Status Request  Schema Validataion = true
+
 Status Response  Schema Validataion = true
 
 
@@ -172,18 +190,23 @@ Status Response  Schema Validataion = true
 ./test.sh 6 1
 
 Oostervantstraat 12B, 3021 PV Rotterdam, Netherlands - Mijnsherenlaan 16, 3081 CA Rotterdam, Netherlands
+
 -received 5 offers in 0.361617414
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Sarphatistraat 117, 1018 GB, Amsterdam, Netherlands
+
 -received 5 offers in 0.395711203
 
 (RTM) - Rotterdam The Hague Airport, Rotterdam, Netherlands - Mijnsherenlaan 47A, 3081 GC Rotterdam, Netherlands
+
 -received 5 offers in 0.410642091
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Arlandaweg 10-14, 1043 EW, Amsterdam, Netherlands
+
 -received 5 offers in 0.400326548 
 
 Molenwerf 1, 1014 AG, Amsterdam, Netherlands - (AMS) - Schiphol Airport, Amsterdam, Netherlands
+
 -received 5 offers in 0.373700579
 
 
@@ -192,23 +215,33 @@ Molenwerf 1, 1014 AG, Amsterdam, Netherlands - (AMS) - Schiphol Airport, Amsterd
 ./test.sh 6 2
 
 Oostervantstraat 12B, 3021 PV Rotterdam, Netherlands - Mijnsherenlaan 16, 3081 CA Rotterdam, Netherlands
+
 -received 5 offers in 0.362296315
+
 -received 5 offers in 0.363247723
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Sarphatistraat 117, 1018 GB, Amsterdam, Netherlands
+
 -received 5 offers in 0.314868998
+
 -received 5 offers in 0.471460523
 
 (RTM) - Rotterdam The Hague Airport, Rotterdam, Netherlands - Mijnsherenlaan 47A, 3081 GC Rotterdam, Netherlands
+
 -received 5 offers in 0.365419245
+
 -received 5 offers in 0.371034361
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Arlandaweg 10-14, 1043 EW, Amsterdam, Netherlands
+
 -received 5 offers in 0.29483922
+
 -received 5 offers in 0.298529772
 
 Molenwerf 1, 1014 AG, Amsterdam, Netherlands - (AMS) - Schiphol Airport, Amsterdam, Netherlands
+
 -received 5 offers in 0.282042034
+
 -received 5 offers in 0.411367534
 
 #### 5 threads a second ####
@@ -216,37 +249,62 @@ Molenwerf 1, 1014 AG, Amsterdam, Netherlands - (AMS) - Schiphol Airport, Amsterd
 ./test.sh 6 5
 
 Oostervantstraat 12B, 3021 PV Rotterdam, Netherlands - Mijnsherenlaan 16, 3081 CA Rotterdam, Netherlands
+
 -received 5 offers in 0.32365231
+
 -received 5 offers in 0.404767611
+
 -received 5 offers in 0.405037531
+
 -received 5 offers in 0.4062037
+
 -received 5 offers in 0.409807868
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Sarphatistraat 117, 1018 GB, Amsterdam, Netherlands
+
 -received 5 offers in 0.332960162
+
 -received 5 offers in 0.334156399
+
 -received 5 offers in 0.424172861
+
 -received 5 offers in 0.451100869
+
 -received 5 offers in 0.45244478 
 
 (RTM) - Rotterdam The Hague Airport, Rotterdam, Netherlands - Mijnsherenlaan 47A, 3081 GC Rotterdam, Netherlands
+
 -received 5 offers in 0.311756592
+
 -received 5 offers in 0.331229156
+
 -received 5 offers in 0.331037441
+
 -received 5 offers in 0.428533746
+
 -received 5 offers in 0.430136899 
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Arlandaweg 10-14, 1043 EW, Amsterdam, Netherlands
+
 -received 5 offers in 0.38152261
+
 -received 5 offers in 0.403841785
+
 -received 5 offers in 0.406370947
+
 -received 5 offers in 0.408279462
+
 -received 5 offers in 0.41076179 
 
 Molenwerf 1, 1014 AG, Amsterdam, Netherlands - (AMS) - Schiphol Airport, Amsterdam, Netherlands
+
 -received 5 offers in 0.344451569
+
 -received 5 offers in 0.345617898
+
 -received 5 offers in 0.348137098
+
 -received 5 offers in 0.348203549
+
 -received 5 offers in 0.418301242 
 
