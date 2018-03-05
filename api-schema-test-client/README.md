@@ -102,88 +102,81 @@ ruby test.rb 6 2 : performing performance test with 2 thread in a second
 
 ./test.sh 1
 
-Search Request  Schema Validataion = true
- - received 5 offers
-
-Search Response  Schema Validataion = true
+```
+Search Request  Schema Validation = true
+received 5 offers
+Search Response  Schema Validation = true
+```
 
 ./test.sh 2
 
-Search Request  Schema Validataion = true
- - received 5 offers
-
-Search Response  Schema Validataion = true
-
+```
+Search Request  Schema Validation = true
+received 5 offers
+Search Response  Schema Validation = true
 now selecting one of the offer and creating a booking
-
 data used for creating booking
+```
 
 ```
 {"bookingRefId"=>"afbb086daa16fc97e0d70a221c281a96", "shortId"=>"465927485", "supplierPricingRefId"=>"PR-27401101", "pickupDateTime"=>"2017-10-07T13:53", "addresses"=>[{"address"=>"De Hoef Westzijde 33, 1426 AT De Hoef, Netherlands", "category"=>"Address", "location"=>{"lat"=>52.2032, "lng"=>4.8093}, "type"=>1}, {"address"=>"Korteraarseweg 48, 2461 GM Ter Aar, Netherlands", "category"=>"Address", "location"=>{"lat"=>52.1738, "lng"=>4.7296}, "type"=>2}], "ageGroups"=>[{"minAge"=>0, "maxAge"=>100, "count"=>1}], "passengers"=>[{"name"=>"Testing Oy", "email"=>"bookings@cabforce.com", "phone"=>"123456789"}], "notes"=>"Test Test", "product"=>{"type"=>2, "category"=>2, "pax"=>4, "bags"=>4, "properties"=>[{"type"=>1, "numberValue"=>1}, {"type"=>2, "numberValue"=>1}, {"type"=>8, "numberValue"=>1}, {"type"=>9, "numberValue"=>1}, {"type"=>12, "numberValue"=>1}, {"type"=>20, "numberValue"=>1}, {"type"=>50, "numberValue"=>1}, {"type"=>51, "numberValue"=>1}, {"type"=>56, "numberValue"=>1}, {"type"=>21, "numberValue"=>1}], "makeModel"=>"Toyota Prius or similar"}, "price"=>{"supplier"=>18.876399999999997, "services"=>0, "total"=>18.876399999999997, "included"=>["parking", "gratuity"]}, "createProperty"=>{"leg"=>"1/2", "reference"=>"testing123"}}
 ```
 
-Create Request  Schema Validataion = true
-
+```
+Create Request  Schema Validation = true
 now creating the booking
-
 supplierBookingRefId =59c5080269e53c3100727c26
-
-Create Response  Schema Validataion = true
+Create Response  Schema Validation = true
+```
 
 ./test.sh 3 afbb086daa16fc97e0d70a221c281a96
 
-Cancel Request  Schema Validataion = true
 
-Cancel Response  Schema Validataion = true
+```
+Cancel Request  Schema Validation = true
+Cancel Response  Schema Validation = true
+```
 
 ./test.sh 4 afbb086daa16fc97e0d70a221c281a96
 
+
+```
 checking status of = afbb086daa16fc97e0d70a221c281a96
-
-Status Request  Schema Validataion = true
-
-Status Response  Schema Validataion = true
+Status Request  Schema Validation = true
+Status Response  Schema Validation = true
+```
 
 ./test.sh 5
 
-Search Request  Schema Validataion = true
 
+```
+Search Request  Schema Validation = true
 received 5 offers
-
-Search Response  Schema Validataion = true
-
+Search Response  Schema Validation = true
 now selecting one of the offer and creating a booking
-
 data used for creating booking
+```
 
 ```
 {"bookingRefId"=>"3ddc37d12fdc20d9b7520199df03e75d", "shortId"=>"759408071", "supplierPricingRefId"=>"PR-27401101", "pickupDateTime"=>"2017-10-07T13:55", "addresses"=>[{"address"=>"De Hoef Westzijde 33, 1426 AT De Hoef, Netherlands", "category"=>"Address", "location"=>{"lat"=>52.2032, "lng"=>4.8093}, "type"=>1}, {"address"=>"Korteraarseweg 48, 2461 GM Ter Aar, Netherlands", "category"=>"Address", "location"=>{"lat"=>52.1738, "lng"=>4.7296}, "type"=>2}], "ageGroups"=>[{"minAge"=>0, "maxAge"=>100, "count"=>1}], "passengers"=>[{"name"=>"Testing Oy", "email"=>"bookings@cabforce.com", "phone"=>"123456789"}], "notes"=>"Test Test", "product"=>{"type"=>2, "category"=>2, "pax"=>4, "bags"=>4, "properties"=>[{"type"=>1, "numberValue"=>1}, {"type"=>2, "numberValue"=>1}, {"type"=>8, "numberValue"=>1}, {"type"=>9, "numberValue"=>1}, {"type"=>12, "numberValue"=>1}, {"type"=>20, "numberValue"=>1}, {"type"=>50, "numberValue"=>1}, {"type"=>51, "numberValue"=>1}, {"type"=>56, "numberValue"=>1}, {"type"=>21, "numberValue"=>1}], "makeModel"=>"Toyota Prius or similar"}, "price"=>{"supplier"=>18.876399999999997, "services"=>0, "total"=>18.876399999999997, "included"=>["parking", "gratuity"]}, "createProperty"=>{"leg"=>"1/2", "reference"=>"testing123"}}
 ```
 
-Create Request  Schema Validataion = true
+Create Request  Schema Validation = true
 
 now creating the booking
 
+```
 supplierBookingRefId =59c5086f69e53c3100727c27
-
-Create Response  Schema Validataion = true
-
+Create Response  Schema Validation = true
 checking status of = 3ddc37d12fdc20d9b7520199df03e75d
-
-Status Request  Schema Validataion = true
-
-Status Response  Schema Validataion = true
-
-Cancel Request  Schema Validataion = true
-
-Cancel Response  Schema Validataion = true
-
+Status Request  Schema Validation = true
+Status Response  Schema Validation = true
+Cancel Request  Schema Validation = true
+Cancel Response  Schema Validation = true
 checking status of = 3ddc37d12fdc20d9b7520199df03e75d
-
-Status Request  Schema Validataion = true
-
-Status Response  Schema Validataion = true
-
+Status Request  Schema Validation = true
+Status Response  Schema Validation = true
+```
 
 #### 1 thread a second ####
 
@@ -191,24 +184,33 @@ Status Response  Schema Validataion = true
 
 Oostervantstraat 12B, 3021 PV Rotterdam, Netherlands - Mijnsherenlaan 16, 3081 CA Rotterdam, Netherlands
 
--received 5 offers in 0.361617414
+```
+received 5 offers in 0.361617414
+```
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Sarphatistraat 117, 1018 GB, Amsterdam, Netherlands
 
--received 5 offers in 0.395711203
+```
+received 5 offers in 0.395711203
+```
 
 (RTM) - Rotterdam The Hague Airport, Rotterdam, Netherlands - Mijnsherenlaan 47A, 3081 GC Rotterdam, Netherlands
 
--received 5 offers in 0.410642091
+```
+received 5 offers in 0.410642091
+```
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Arlandaweg 10-14, 1043 EW, Amsterdam, Netherlands
 
--received 5 offers in 0.400326548 
+```
+received 5 offers in 0.400326548 
+```
 
 Molenwerf 1, 1014 AG, Amsterdam, Netherlands - (AMS) - Schiphol Airport, Amsterdam, Netherlands
 
--received 5 offers in 0.373700579
-
+```
+received 5 offers in 0.373700579
+```
 
 #### 2 threads a second ####
 
@@ -216,33 +218,38 @@ Molenwerf 1, 1014 AG, Amsterdam, Netherlands - (AMS) - Schiphol Airport, Amsterd
 
 Oostervantstraat 12B, 3021 PV Rotterdam, Netherlands - Mijnsherenlaan 16, 3081 CA Rotterdam, Netherlands
 
--received 5 offers in 0.362296315
-
--received 5 offers in 0.363247723
+```
+received 5 offers in 0.362296315
+received 5 offers in 0.363247723
+```
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Sarphatistraat 117, 1018 GB, Amsterdam, Netherlands
 
--received 5 offers in 0.314868998
-
--received 5 offers in 0.471460523
+```
+received 5 offers in 0.314868998
+received 5 offers in 0.471460523
+```
 
 (RTM) - Rotterdam The Hague Airport, Rotterdam, Netherlands - Mijnsherenlaan 47A, 3081 GC Rotterdam, Netherlands
 
--received 5 offers in 0.365419245
-
--received 5 offers in 0.371034361
+```
+received 5 offers in 0.365419245
+received 5 offers in 0.371034361
+```
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Arlandaweg 10-14, 1043 EW, Amsterdam, Netherlands
 
--received 5 offers in 0.29483922
-
--received 5 offers in 0.298529772
+```
+received 5 offers in 0.29483922
+received 5 offers in 0.298529772
+```
 
 Molenwerf 1, 1014 AG, Amsterdam, Netherlands - (AMS) - Schiphol Airport, Amsterdam, Netherlands
 
--received 5 offers in 0.282042034
-
--received 5 offers in 0.411367534
+```
+received 5 offers in 0.282042034
+received 5 offers in 0.411367534
+```
 
 #### 5 threads a second ####
 
@@ -250,61 +257,50 @@ Molenwerf 1, 1014 AG, Amsterdam, Netherlands - (AMS) - Schiphol Airport, Amsterd
 
 Oostervantstraat 12B, 3021 PV Rotterdam, Netherlands - Mijnsherenlaan 16, 3081 CA Rotterdam, Netherlands
 
--received 5 offers in 0.32365231
-
--received 5 offers in 0.404767611
-
--received 5 offers in 0.405037531
-
--received 5 offers in 0.4062037
-
--received 5 offers in 0.409807868
+```
+received 5 offers in 0.32365231
+received 5 offers in 0.404767611
+received 5 offers in 0.405037531
+received 5 offers in 0.4062037
+received 5 offers in 0.409807868
+```
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Sarphatistraat 117, 1018 GB, Amsterdam, Netherlands
 
--received 5 offers in 0.332960162
-
--received 5 offers in 0.334156399
-
--received 5 offers in 0.424172861
-
--received 5 offers in 0.451100869
-
--received 5 offers in 0.45244478 
+```
+received 5 offers in 0.332960162
+received 5 offers in 0.334156399
+received 5 offers in 0.424172861
+received 5 offers in 0.451100869
+received 5 offers in 0.45244478 
+```
 
 (RTM) - Rotterdam The Hague Airport, Rotterdam, Netherlands - Mijnsherenlaan 47A, 3081 GC Rotterdam, Netherlands
 
--received 5 offers in 0.311756592
-
--received 5 offers in 0.331229156
-
--received 5 offers in 0.331037441
-
--received 5 offers in 0.428533746
-
--received 5 offers in 0.430136899 
+```
+received 5 offers in 0.311756592
+received 5 offers in 0.331229156
+received 5 offers in 0.331037441
+received 5 offers in 0.428533746
+received 5 offers in 0.430136899 
+```
 
 (AMS) - Schiphol Airport, Amsterdam, Netherlands - Arlandaweg 10-14, 1043 EW, Amsterdam, Netherlands
 
--received 5 offers in 0.38152261
-
--received 5 offers in 0.403841785
-
--received 5 offers in 0.406370947
-
--received 5 offers in 0.408279462
-
--received 5 offers in 0.41076179 
+```
+received 5 offers in 0.38152261
+received 5 offers in 0.403841785
+received 5 offers in 0.406370947
+received 5 offers in 0.408279462
+received 5 offers in 0.41076179 
+```
 
 Molenwerf 1, 1014 AG, Amsterdam, Netherlands - (AMS) - Schiphol Airport, Amsterdam, Netherlands
 
--received 5 offers in 0.344451569
-
--received 5 offers in 0.345617898
-
--received 5 offers in 0.348137098
-
--received 5 offers in 0.348203549
-
--received 5 offers in 0.418301242 
-
+```
+received 5 offers in 0.344451569
+received 5 offers in 0.345617898
+received 5 offers in 0.348137098
+received 5 offers in 0.348203549
+received 5 offers in 0.418301242 
+```

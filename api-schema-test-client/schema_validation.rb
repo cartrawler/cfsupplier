@@ -25,7 +25,7 @@ module SchemaValidation
 
     def test(type, schema, data)
       success = validate(schema, data)
-      puts "-#{type} Schema Validataion = #{success}"
+      puts "-#{type} Schema Validation = #{success}"
       success
     end
   end
