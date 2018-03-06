@@ -26,7 +26,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
 
   it should "respond with offer in request" in {
 
-    Post(s"/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
+    Post(s"/v1/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
       val str = responseAs[SearchResult].toString
       logger.info(str)
 
@@ -38,7 +38,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
 
   it should "confirm offer in request" in {
 
-    val result = Post(s"/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
+    val result = Post(s"/v1/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
       val str = responseAs[SearchResult].toString
       logger.info(str)
 
@@ -51,7 +51,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
     val formatter = java.text.NumberFormat.getCurrencyInstance
     val myId = "123456789"
 
-    Post(s"/booking/create", Create(myId,
+    Post(s"/v1/booking/create", Create(myId,
       "123",
       Option(result.result.get(0).supplierPricingRefId),
       pickupTime,
@@ -60,10 +60,17 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       Option.empty,
       Option("pickupDetails"),
       Option(CreateProperty(Option("leg1"), Option("refe1"))),
-      Seq(Passenger("Timmy Test", "", "32343433")),
-      "Notest",
-      DriveProduct(result.result.get(0).product.`type`, result.result.get(0).product.category, result.result.get(0).product.bags, result.result.get(0).product.pax, Option.empty),
-      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)), Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total), Option("EUR")),
+      Seq(Passenger("Timmy Test", Option(""), "32343433")),
+      Option("Passenger provided extra notes"),
+      DriveProduct(result.result.get(0).product.`type`,
+        result.result.get(0).product.category,
+        result.result.get(0).product.bags,
+        result.result.get(0).product.pax,
+        Option.empty,
+        Option.empty),
+      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)),
+        Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total),
+        Option("EUR"), Option.empty),
       Option.empty
     )) ~> routes ~> check {
       val str = responseAs[BookingCreateResponse].toString
@@ -77,7 +84,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
 
   it should "confirm offer in request and check status" in {
 
-    val result = Post(s"/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
+    val result = Post(s"/v1/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
       val str = responseAs[SearchResult].toString
       logger.info(str)
 
@@ -90,7 +97,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
     val formatter = java.text.NumberFormat.getCurrencyInstance
     val myId = "987654321"
 
-    Post(s"/booking/create", Create(myId,
+    Post(s"/v1/booking/create", Create(myId,
       "321",
       Option(result.result.get(0).supplierPricingRefId),
       pickupTime,
@@ -99,10 +106,17 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       Option.empty,
       Option("pickupDetails"),
       Option(CreateProperty(Option("leg1"), Option("refe1"))),
-      Seq(Passenger("Timmy Test", "", "32343433")),
-      "Notest",
-      DriveProduct(result.result.get(0).product.`type`, result.result.get(0).product.category, result.result.get(0).product.bags, result.result.get(0).product.pax, Option.empty),
-      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)), Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total), Option("EUR")),
+      Seq(Passenger("Timmy Test", Option(""), "32343433")),
+      Option("Passenger provided extra notes"),
+      DriveProduct(result.result.get(0).product.`type`,
+        result.result.get(0).product.category,
+        result.result.get(0).product.bags,
+        result.result.get(0).product.pax,
+        Option.empty,
+        Option.empty),
+      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)),
+        Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total),
+        Option("EUR"), Option.empty),
       Option.empty
     )) ~> routes ~> check {
       val str = responseAs[BookingCreateResponse].toString
@@ -114,7 +128,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
 
     }
 
-    Post(s"/booking/status", Booking(myId)) ~> routes ~> check {
+    Post(s"/v1/booking/status", Booking(myId)) ~> routes ~> check {
       val str = responseAs[BookingStatusResponse].toString
       logger.info(str)
 
@@ -123,7 +137,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       responseAs[BookingStatusResponse].state shouldBe Open
     }
 
-    Post(s"/booking/status", Booking(myId)) ~> routes ~> check {
+    Post(s"/v1/booking/status", Booking(myId)) ~> routes ~> check {
       val str = responseAs[BookingStatusResponse].toString
       logger.info(str)
 
@@ -134,7 +148,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       responseAs[BookingStatusResponse].driverDetails.get.phone shouldBe "654321654"
     }
 
-    Post(s"/booking/status", Booking(myId)) ~> routes ~> check {
+    Post(s"/v1/booking/status", Booking(myId)) ~> routes ~> check {
       val str = responseAs[BookingStatusResponse].toString
       logger.info(str)
 
@@ -146,7 +160,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
 
   it should "confirm offer in request and cancel after open" in {
 
-    val result = Post(s"/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
+    val result = Post(s"/v1/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
       val str = responseAs[SearchResult].toString
       logger.info(str)
 
@@ -159,7 +173,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
     val formatter = java.text.NumberFormat.getCurrencyInstance
     val myId = "987654321ABC"
 
-    Post(s"/booking/create", Create(myId,
+    Post(s"/v1/booking/create", Create(myId,
       "321",
       Option(result.result.get(0).supplierPricingRefId),
       pickupTime,
@@ -168,10 +182,17 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       Option.empty,
       Option("pickupDetails"),
       Option(CreateProperty(Option("leg1"), Option("refe1"))),
-      Seq(Passenger("Timmy Test", "", "32343433")),
-      "Notest",
-      DriveProduct(result.result.get(0).product.`type`, result.result.get(0).product.category, result.result.get(0).product.bags, result.result.get(0).product.pax, Option.empty),
-      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)), Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total), Option("EUR")),
+      Seq(Passenger("Timmy Test", Option(""), "32343433")),
+      Option("Passenger provided extra notes"),
+      DriveProduct(result.result.get(0).product.`type`,
+        result.result.get(0).product.category,
+        result.result.get(0).product.bags,
+        result.result.get(0).product.pax,
+        Option.empty,
+        Option.empty),
+      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)),
+        Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total),
+        Option("EUR"), Option.empty),
       Option.empty
     )) ~> routes ~> check {
       val str = responseAs[BookingCreateResponse].toString
@@ -183,7 +204,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
 
     }
 
-    Post(s"/booking/status", Booking(myId)) ~> routes ~> check {
+    Post(s"/v1/booking/status", Booking(myId)) ~> routes ~> check {
       val str = responseAs[BookingStatusResponse].toString
       logger.info(str)
 
@@ -192,7 +213,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       responseAs[BookingStatusResponse].state shouldBe Open
     }
 
-    Post(s"/booking/cancel", Booking(myId)) ~> routes ~> check {
+    Post(s"/v1/booking/cancel", Booking(myId)) ~> routes ~> check {
       val str = responseAs[BookingCancelResponse].toString
       logger.info(str)
 
@@ -201,7 +222,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       responseAs[BookingCancelResponse].status shouldBe Ok
     }
 
-    Post(s"/booking/status", Booking(myId)) ~> routes ~> check {
+    Post(s"/v1/booking/status", Booking(myId)) ~> routes ~> check {
       val str = responseAs[BookingStatusResponse].toString
       logger.info(str)
 
@@ -214,7 +235,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
 
   it should "confirm offer in request and reject after ok" in {
 
-    val result = Post(s"/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
+    val result = Post(s"/v1/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
       val str = responseAs[SearchResult].toString
       logger.info(str)
 
@@ -227,7 +248,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
     val formatter = java.text.NumberFormat.getCurrencyInstance
     val myId = "deadbeef"
 
-    Post(s"/booking/create", Create(myId,
+    Post(s"/v1/booking/create", Create(myId,
       "321",
       Option(result.result.get(0).supplierPricingRefId),
       pickupTime,
@@ -236,10 +257,17 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       Option.empty,
       Option("pickupDetails"),
       Option(CreateProperty(Option("leg1"), Option("refe1"))),
-      Seq(Passenger("Timmy Test", "", "32343433")),
-      "Notest",
-      DriveProduct(result.result.get(0).product.`type`, result.result.get(0).product.category, result.result.get(0).product.bags, result.result.get(0).product.pax, Option.empty),
-      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)), Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total), Option("EUR")),
+      Seq(Passenger("Timmy Test", Option(""), "32343433")),
+      Option("Passenger provided extra notes"),
+      DriveProduct(result.result.get(0).product.`type`,
+        result.result.get(0).product.category,
+        result.result.get(0).product.bags,
+        result.result.get(0).product.pax,
+        Option.empty,
+        Option.empty),
+      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)),
+        Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total),
+        Option("EUR"), Option.empty),
       Option.empty
     )) ~> routes ~> check {
       val str = responseAs[BookingCreateResponse].toString
@@ -251,7 +279,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
 
     }
 
-    Post(s"/booking/status", Booking(myId)) ~> routes ~> check {
+    Post(s"/v1/booking/status", Booking(myId)) ~> routes ~> check {
       val str = responseAs[BookingStatusResponse].toString
       logger.info(str)
 
@@ -260,7 +288,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       responseAs[BookingStatusResponse].state shouldBe Open
     }
 
-    Post(s"/booking/status", Booking(myId)) ~> routes ~> check {
+    Post(s"/v1/booking/status", Booking(myId)) ~> routes ~> check {
       val str = responseAs[BookingStatusResponse].toString
       logger.info(str)
 
@@ -272,7 +300,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
 
   it should "confirm offer twice and check status" in {
 
-    val result = Post(s"/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
+    val result = Post(s"/v1/pricing/search", SearchRequest(pickupTime, addresses, Option(ageGroup))) ~> routes ~> check {
       val str = responseAs[SearchResult].toString
       logger.info(str)
 
@@ -285,7 +313,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
     val formatter = java.text.NumberFormat.getCurrencyInstance
     val myId = "987654321000"
 
-    Post(s"/booking/create", Create(myId,
+    Post(s"/v1/booking/create", Create(myId,
       "321",
       Option(result.result.get(0).supplierPricingRefId),
       pickupTime,
@@ -294,10 +322,17 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       Option.empty,
       Option("pickupDetails"),
       Option(CreateProperty(Option("leg1"), Option("refe1"))),
-      Seq(Passenger("Timmy Test", "", "32343433")),
-      "Notest",
-      DriveProduct(result.result.get(0).product.`type`, result.result.get(0).product.category, result.result.get(0).product.bags, result.result.get(0).product.pax, Option.empty),
-      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)), Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total), Option("EUR")),
+      Seq(Passenger("Timmy Test", Option(""), "32343433")),
+      Option("Passenger provided extra notes"),
+      DriveProduct(result.result.get(0).product.`type`,
+        result.result.get(0).product.category,
+        result.result.get(0).product.bags,
+        result.result.get(0).product.pax,
+        Option.empty,
+        Option.empty),
+      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)),
+        Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total),
+        Option("EUR"), Option.empty),
       Option.empty
     )) ~> routes ~> check {
       val str = responseAs[BookingCreateResponse].toString
@@ -309,7 +344,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
 
     }
 
-    Post(s"/booking/create", Create(myId,
+    Post(s"/v1/booking/create", Create(myId,
       "321",
       Option(result.result.get(0).supplierPricingRefId),
       pickupTime,
@@ -318,10 +353,17 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       Option.empty,
       Option("pickupDetails"),
       Option(CreateProperty(Option("leg1"), Option("refe1"))),
-      Seq(Passenger("Timmy Test", "", "32343433")),
-      "Notest",
-      DriveProduct(result.result.get(0).product.`type`, result.result.get(0).product.category, result.result.get(0).product.bags, result.result.get(0).product.pax, Option.empty),
-      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)), Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total), Option("EUR")),
+      Seq(Passenger("Timmy Test", Option(""), "32343433")),
+      Option("Passenger provided extra notes"),
+      DriveProduct(result.result.get(0).product.`type`,
+        result.result.get(0).product.category,
+        result.result.get(0).product.bags,
+        result.result.get(0).product.pax,
+        Option.empty,
+        Option.empty),
+      DrivePrice(Option(formatter.format(result.result.get(0).price.supplier)),
+        Option(formatter.format(result.result.get(0).price.service)), formatter.format(result.result.get(0).price.total),
+        Option("EUR"), Option.empty),
       Option.empty
     )) ~> routes ~> check {
       val str = responseAs[BookingCreateResponse].toString
@@ -334,7 +376,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
     }
 
 
-    Post(s"/booking/status", Booking(myId)) ~> routes ~> check {
+    Post(s"/v1/booking/status", Booking(myId)) ~> routes ~> check {
       val str = responseAs[BookingStatusResponse].toString
       logger.info(str)
 
@@ -343,7 +385,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       responseAs[BookingStatusResponse].state shouldBe Open
     }
 
-    Post(s"/booking/status", Booking(myId)) ~> routes ~> check {
+    Post(s"/v1/booking/status", Booking(myId)) ~> routes ~> check {
       val str = responseAs[BookingStatusResponse].toString
       logger.info(str)
 
@@ -354,7 +396,7 @@ class ServiceSpec extends FlatSpec with Matchers with ScalatestRouteTest with Se
       responseAs[BookingStatusResponse].driverDetails.get.phone shouldBe "654321654"
     }
 
-    Post(s"/booking/status", Booking(myId)) ~> routes ~> check {
+    Post(s"/v1/booking/status", Booking(myId)) ~> routes ~> check {
       val str = responseAs[BookingStatusResponse].toString
       logger.info(str)
 

@@ -6,7 +6,7 @@ require_relative './tasks.rb'
 
 module SupplierApi
      
-    CONFIG = JSON.parse(File.read('.config/config.json'))
+    CONFIG = JSON.parse(File.read('./config/config.json'))
     BOOKING_GENERIC_SEARCH_REQUEST = JSON.parse(File.read('./schemaValidation/genericSearchRequestSchema.json')) 
     BOOKING_GENERIC_SEARCH_RESPONSE = JSON.parse(File.read('./schemaValidation/genericSearchResponseSchema.json')) 
     BOOKING_STATUS_RESPONS = JSON.parse(File.read('./schemaValidation/bookingStatusResponseSchema.json')) 
@@ -84,7 +84,12 @@ module SupplierApi
                 if status_and_result_check(reply) 
                     puts "-received #{reply["result"].length } offers "
                     valid = Tasks::Setup.instance.schema.validate("Search Response ", BOOKING_GENERIC_SEARCH_RESPONSE, reply)
-                    if valid then "-search completed" else puts "-though the search is completed, your response json is invalid!" end 
+                    if valid 
+                        "-search completed" 
+                    else 
+                        Tasks::Setup.instance.schema.fully_validate("Search Response ", BOOKING_GENERIC_SEARCH_RESPONSE, reply)
+                        puts "-though the search is completed, your response json is invalid!" 
+                    end 
                 else
                     puts "- no offers"
                 end
@@ -109,7 +114,14 @@ module SupplierApi
                 shortId =  generate_random_number(999999999)  
                 firstOffer = searchReply["result"][0]
                 product = firstOffer["product"] 
-                priceTotal = firstOffer["price"]
+
+                suppl = {
+                    :supplier => firstOffer["price"]["supplier"].to_s,
+                    :service => firstOffer["price"]["service"].to_s,
+                    :total => firstOffer["price"]["total"].to_s,
+                    :included => firstOffer["price"]["included"]
+                }
+
                 supplierPricingRef = firstOffer["supplierPricingRefId"] 
                 hash_data = SupplierApi::CONFIG
                 url = SupplierApi::URL
@@ -121,7 +133,7 @@ module SupplierApi
                 post_data["shortId"] = shortId.to_s
                 post_data["supplierPricingRefId"] = supplierPricingRef
                 post_data["product"] = product
-                post_data["price"] = priceTotal
+                post_data["price"] = suppl
                 puts "-data used for creating booking \n ============================================================== \n #{post_data} \n ==============================================================" 
                 valid = Tasks::Setup.instance.schema.validate("Create Request ", BOOKING_CREATE_REQUEST, post_data)
                 if valid

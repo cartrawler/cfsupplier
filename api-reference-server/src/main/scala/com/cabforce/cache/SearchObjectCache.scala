@@ -33,13 +33,13 @@ object SearchObjectCache {
   }
 
   def scache(searchId: String, createId: String, obj: BookingStatusEntry): BookingStatusEntry = {
-    lfuSearchCache.getOptional(searchId).orElseThrow(() => throw new RuntimeException(s"Offer $searchId / $createId does not exists")).thenApply(a => {
+    lfuSearchCache.getOptional(searchId).orElseThrow(() => throw new RuntimeException(s"Offer $searchId / $createId is not exists")).thenApply(a => {
       Await.result(lfuBookingCache.get(createId, () => obj), 3.seconds).asInstanceOf[BookingStatusEntry]
     }).toCompletableFuture.get.asInstanceOf[BookingStatusEntry]
   }
 
   def scache(createId: String) : BookingStatusEntry = {
-    lfuBookingCache.getOptional(createId).orElseThrow(() => throw new RuntimeException(s"Booking $createId does not created")).toCompletableFuture.get.asInstanceOf[BookingStatusEntry]
+    lfuBookingCache.getOptional(createId).orElseThrow(() => throw new RuntimeException(s"Booking $createId is not created")).toCompletableFuture.get.asInstanceOf[BookingStatusEntry]
   }
 
   def supdate(createId: String, obj: BookingStatusEntry) : BookingStatusEntry = {

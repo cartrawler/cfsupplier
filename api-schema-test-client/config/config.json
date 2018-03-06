@@ -1,77 +1,117 @@
 {
-	"baseUrl": "",
-	"authKey":"",
-	"searchDataGenericProduct": { 
-		"addresses":[
-			{
-				"address":"De Hoef Westzijde 33, 1426 AT De Hoef, Netherlands",
-				"category":"Address",
-				"location":{"lat":52.2032,"lng":4.8093},
-				"type":1
-			},
-			{
-				"address":"Korteraarseweg 48, 2461 GM Ter Aar, Netherlands",
-				"category":"Address",
-				"location":{"lat":52.1738,"lng":4.7296},"type":2}
-		],
-		"ageGroups":[{"minAge":0,"maxAge":100,"count":1}]
-	},
-	"searchDataShuttleProduct": { 
-		"addresses":[
-			{
-				"address":"De Hoef Westzijde 33, 1426 AT De Hoef, Netherlands",
-				"category":"Address",
-				"location":{"lat":52.2032,"lng":4.8093},
-				"type":1
-			},
-			{
-				"address":"Korteraarseweg 48, 2461 GM Ter Aar, Netherlands",
-				"category":"Address",
-				"location":{"lat":52.1738,"lng":4.7296},"type":2}
-		],
-		"ageGroups":[{"minAge":0,"maxAge":100,"count":1}]
-	},
-
-	"bookingCreateData":{
-		"bookingRefId":"f75c5acd563948dcb0d8cd6e7b860a22",
-		"shortId":"571596364",
-		"supplierPricingRefId":"PR-27401101",
-		"pickupDateTime":"2017-09-03T15:00+0200",
-		"addresses":[
-			{
-				"address":"De Hoef Westzijde 33, 1426 AT De Hoef, Netherlands",
-				"category":"Address",
-				"location":{"lat":52.2032,"lng":4.8093},
-				"type":1
-			},
-			{
-				"address":"Korteraarseweg 48, 2461 GM Ter Aar, Netherlands",
-				"category":"Address",
-				"location":{"lat":52.1738,"lng":4.7296},"type":2}
-		],
-		"ageGroups":[{"minAge":0,"maxAge":100,"count":1}],
-		"passengers":[
-			{
-				"name":"Testing Oy",
-				"email":"bookings@cabforce.com",
-				"phone":"123456789"
-			}
-		],
-		"notes":"Test Test",
-		"product":{
-			"type":2,
-			"category":2,
-			"pax":1,
-			"bags":4,
-			"properties":[]
-		},
-		"price":{
-			"total":28.97
-		},
-		"createProperty":{
-			"leg":"1/2",
-			"reference":"testing123"
-		}
-	}
-	 
+  "baseUrl": "http://127.0.0.1:9033",
+  "authKey": "auth_placeholder",
+  "searchDataGenericProduct": {
+    "addresses": [
+      {
+        "address": "De Hoef Westzijde 33, 1426 AT De Hoef, Netherlands",
+        "category": "Address",
+        "location": {
+          "lat": 52.2032,
+          "lng": 4.8093
+        },
+        "type": 1
+      },
+      {
+        "address": "Korteraarseweg 48, 2461 GM Ter Aar, Netherlands",
+        "category": "Address",
+        "location": {
+          "lat": 52.1738,
+          "lng": 4.7296
+        },
+        "type": 2
+      }
+    ],
+    "ageGroups": [
+      {
+        "minAge": 0,
+        "maxAge": 100,
+        "count": 1
+      }
+    ]
+  },
+  "searchDataShuttleProduct": {
+    "addresses": [
+      {
+        "address": "De Hoef Westzijde 33, 1426 AT De Hoef, Netherlands",
+        "category": "Address",
+        "location": {
+          "lat": 52.2032,
+          "lng": 4.8093
+        },
+        "type": 1
+      },
+      {
+        "address": "Korteraarseweg 48, 2461 GM Ter Aar, Netherlands",
+        "category": "Address",
+        "location": {
+          "lat": 52.1738,
+          "lng": 4.7296
+        },
+        "type": 2
+      }
+    ],
+    "ageGroups": [
+      {
+        "minAge": 0,
+        "maxAge": 100,
+        "count": 1
+      }
+    ]
+  },
+  "bookingCreateData": {
+    "bookingRefId": "f75c5acd563948dcb0d8cd6e7b860a22",
+    "shortId": "571596364",
+    "supplierPricingRefId": "PR-27401101",
+    "pickupDateTime": "2017-09-03T15:00+0200",
+    "addresses": [
+      {
+        "address": "De Hoef Westzijde 33, 1426 AT De Hoef, Netherlands",
+        "category": "Address",
+        "location": {
+          "lat": 52.2032,
+          "lng": 4.8093
+        },
+        "type": 1
+      },
+      {
+        "address": "Korteraarseweg 48, 2461 GM Ter Aar, Netherlands",
+        "category": "Address",
+        "location": {
+          "lat": 52.1738,
+          "lng": 4.7296
+        },
+        "type": 2
+      }
+    ],
+    "ageGroups": [
+      {
+        "minAge": 0,
+        "maxAge": 100,
+        "count": 1
+      }
+    ],
+    "passengers": [
+      {
+        "name": "Testing Oy",
+        "email": "bookings@cabforce.com",
+        "phone": "123456789"
+      }
+    ],
+    "notes": "Test Test",
+    "product": {
+      "type": 2,
+      "category": 2,
+      "pax": 1,
+      "bags": 4,
+      "properties": []
+    },
+    "price": {
+      "total": 28.97
+    },
+    "createProperty": {
+      "leg": "1/2",
+      "reference": "testing123"
+    }
+  }
 }

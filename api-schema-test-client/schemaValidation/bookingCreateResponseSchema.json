@@ -1,26 +1,25 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#", 
-  "definitions": {}, 
-  "id": "http://example.com/example.json", 
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "id": "http://example.com/example.json",
   "properties": {
     "latestConfirmationTime": {
-      "id": "/properties/latestConfirmationTime", 
+      "id": "/properties/latestConfirmationTime",
       "type": "string"
-    }, 
+    },
     "status": {
-      "id": "/properties/status", 
+      "id": "/properties/status",
       "type": "string"
-    }, 
+    },
     "supplierBookingRefId": {
-      "id": "/properties/supplierBookingRefId", 
+      "id": "/properties/supplierBookingRefId",
       "type": "string"
     }
-  }, 
+  },
   "required": [
-    "supplierBookingRefId", 
-    "latestConfirmationTime", 
+    "supplierBookingRefId",
+    "latestConfirmationTime",
     "status"
-  ], 
+  ],
   "type": "object"
 }
-

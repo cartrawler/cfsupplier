@@ -43,7 +43,7 @@ class ReferenceApiSearchFlow() {
       Pickup("meet&greet", "TMX Cafe Helsinki", 30, Option.empty),
       "good", 30, 60,
       Option.empty,
-      Option(Cancellation("free", 120, 100)),
+      Option(Seq(Cancellation("free", 120, 100))),
       Option.empty,
       OffsetDateTime.now.plusDays(14).format(timeFormat)))
   }

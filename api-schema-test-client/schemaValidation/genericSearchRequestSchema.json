@@ -1,94 +1,93 @@
 {
-   "$schema": "http://json-schema.org/draft-04/schema#", 
-   "additionalProperties": false, 
-   "definitions": {}, 
-   "id": "http://example.com/example.json", 
-   "properties": {
-     "addresses": {
-       "id": "/properties/addresses", 
-       "items": {
-         "additionalProperties": false, 
-         "id": "/properties/addresses/items", 
-         "properties": {
-           "address": {
-             "id": "/properties/addresses/items/properties/address", 
-             "type": "string"
-           }, 
-           "category": {
-             "id": "/properties/addresses/items/properties/category", 
-             "type": "string"
-           }, 
-           "location": {
-             "additionalProperties": false, 
-             "id": "/properties/addresses/items/properties/location", 
-             "properties": {
-               "lat": {
-                 "id": "/properties/addresses/items/properties/location/properties/lat", 
-                 "type": "number"
-               }, 
-               "lng": {
-                 "id": "/properties/addresses/items/properties/location/properties/lng", 
-                 "type": "number"
-               }
-             }, 
-             "required": [
-               "lng", 
-               "lat"
-             ], 
-             "type": "object"
-           }, 
-           "type": {
-             "id": "/properties/addresses/items/properties/type", 
-             "type": "integer"
-           }
-         }, 
-         "required": [
-           "address", 
-           "location", 
-           "type", 
-           "category"
-         ], 
-         "type": "object"
-       }, 
-       "type": "array"
-     }, 
-     "ageGroups": {
-       "id": "/properties/ageGroups", 
-       "items": {
-         "additionalProperties": false, 
-         "id": "/properties/ageGroups/items", 
-         "properties": {
-           "count": {
-             "id": "/properties/ageGroups/items/properties/count", 
-             "type": "integer"
-           }, 
-           "maxAge": {
-             "id": "/properties/ageGroups/items/properties/maxAge", 
-             "type": "integer"
-           }, 
-           "minAge": {
-             "id": "/properties/ageGroups/items/properties/minAge", 
-             "type": "integer"
-           }
-         }, 
-         "required": [
-           "maxAge", 
-           "minAge", 
-           "count"
-         ], 
-         "type": "object"
-       }, 
-       "type": "array"
-     }, 
-     "pickupDateTime": {
-       "id": "/properties/pickupDateTime", 
-       "type": "string"
-     }
-   }, 
-   "required": [
-     "addresses", 
-     "pickupDateTime"
-   ], 
-   "type": "object"
- }
-
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "additionalProperties": false,
+  "definitions": {},
+  "id": "http://example.com/example.json",
+  "properties": {
+    "addresses": {
+      "id": "/properties/addresses",
+      "items": {
+        "additionalProperties": false,
+        "id": "/properties/addresses/items",
+        "properties": {
+          "address": {
+            "id": "/properties/addresses/items/properties/address",
+            "type": "string"
+          },
+          "category": {
+            "id": "/properties/addresses/items/properties/category",
+            "type": "string"
+          },
+          "location": {
+            "additionalProperties": false,
+            "id": "/properties/addresses/items/properties/location",
+            "properties": {
+              "lat": {
+                "id": "/properties/addresses/items/properties/location/properties/lat",
+                "type": "number"
+              },
+              "lng": {
+                "id": "/properties/addresses/items/properties/location/properties/lng",
+                "type": "number"
+              }
+            },
+            "required": [
+              "lng",
+              "lat"
+            ],
+            "type": "object"
+          },
+          "type": {
+            "id": "/properties/addresses/items/properties/type",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "address",
+          "location",
+          "type",
+          "category"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ageGroups": {
+      "id": "/properties/ageGroups",
+      "items": {
+        "additionalProperties": false,
+        "id": "/properties/ageGroups/items",
+        "properties": {
+          "count": {
+            "id": "/properties/ageGroups/items/properties/count",
+            "type": "integer"
+          },
+          "maxAge": {
+            "id": "/properties/ageGroups/items/properties/maxAge",
+            "type": "integer"
+          },
+          "minAge": {
+            "id": "/properties/ageGroups/items/properties/minAge",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "maxAge",
+          "minAge",
+          "count"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "pickupDateTime": {
+      "id": "/properties/pickupDateTime",
+      "type": "string"
+    }
+  },
+  "required": [
+    "addresses",
+    "pickupDateTime"
+  ],
+  "type": "object"
+}

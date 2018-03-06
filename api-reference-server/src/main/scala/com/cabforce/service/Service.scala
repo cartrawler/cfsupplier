@@ -20,8 +20,7 @@ object SearchRoute extends Protocols {
 
   implicit def searchExceptionHandle : ExceptionHandler = ExceptionHandler {
     case all : Exception => extractUri { uri =>
-      //complete(HttpResponse(StatusCodes.OK, entity = HttpEntity(ContentTypes.`application/json`, defaultResponse.write(DefaultResponse(Failed, Option(s"Search ${uri.toString} error : ${all.getMessage}"), Option.empty)).convertTo[String])))
-      complete(DefaultResponse(Failed, Option(s"Search ${uri.toString} error : ${all.getMessage}"), Option.empty))
+     complete(DefaultResponse(Failed, Option(s"Search ${uri.toString} error : ${all.getMessage}"), Option.empty))
     }
   }
 
@@ -78,7 +77,7 @@ trait Service extends Protocols {
 
   val routes: Route = {
     logRequestResult("cfapiserver") {
-      SearchRoute.route(config) ~ BookingRoute.route(config) ~ pathPrefix("") { complete { DefaultResponse(Failed, Option(s"No such route"),  Option.empty) } }
+      pathPrefix("v1") { SearchRoute.route(config) }  ~ pathPrefix("v1") { BookingRoute.route(config) } ~ pathPrefix("") { complete { DefaultResponse(Failed, Option(s"No such route"),  Option.empty) } }
     }
   }
 }

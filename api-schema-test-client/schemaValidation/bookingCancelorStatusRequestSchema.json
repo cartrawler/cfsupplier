@@ -1,17 +1,15 @@
-
 {
-  "$schema": "http://json-schema.org/draft-04/schema#", 
-  "definitions": {}, 
-  "id": "http://example.com/example.json", 
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "id": "http://example.com/example.json",
   "properties": {
     "bookingRefId": {
-      "id": "/properties/bookingRefId", 
+      "id": "/properties/bookingRefId",
       "type": "string"
     }
-  }, 
+  },
   "required": [
     "bookingRefId"
-  ], 
+  ],
   "type": "object"
 }
-

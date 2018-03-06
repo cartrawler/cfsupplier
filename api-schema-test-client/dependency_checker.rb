@@ -30,7 +30,7 @@ module DependencyChecker
       begin
         read_file = Thread.new {
           list_of_required_gems = []
-          File.open('.config/gemRequirement.txt', 'r') { |file|
+          File.open('./config/gemRequirement.txt', 'r') { |file|
             file.each do |line|
               list_of_required_gems << line.strip
             end

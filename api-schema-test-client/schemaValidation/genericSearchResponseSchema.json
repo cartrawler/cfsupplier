@@ -1,268 +1,265 @@
 {
-     "$schema": "http://json-schema.org/draft-04/schema#", 
-    "additionalProperties": true, 
-    "definitions": {}, 
-     "id": "http://example.com/example.json", 
-     "properties": {
-       "result": {
-         "id": "/properties/result", 
-         "items": {
-          "additionalProperties": true, 
-          "id": "/properties/result/items", 
-          "properties": {
-            "ageGroups": {
-              "id": "/properties/result/items/properties/ageGroups", 
-              "items": {
-                "additionalProperties": true, 
-                "id": "/properties/result/items/properties/ageGroups/items", 
-                "properties": {
-                  "count": {
-                    "id": "/properties/result/items/properties/ageGroups/items/properties/count", 
-                    "type": "integer"
-                  }, 
-                  "maxAge": {
-                    "id": "/properties/result/items/properties/ageGroups/items/properties/maxAge", 
-                    "type": "integer"
-                  }, 
-                  "minAge": {
-                    "id": "/properties/result/items/properties/ageGroups/items/properties/minAge", 
-                    "type": "integer"
-                  }
-                }, 
-                "required": [
-                  "maxAge", 
-                  "minAge", 
-                  "count"
-                ], 
-                "type": "object"
-              }, 
-              "type": "array"
-            }, 
-            "cancellation": {
-              "id": "/properties/result/items/properties/cancellation", 
-              "items": {
-                "additionalProperties": true, 
-                "id": "/properties/result/items/properties/cancellation/items", 
-                "properties": {
-                  "type": {
-                    "id": "/properties/result/items/properties/cancellation/items/properties/type", 
-                    "type": "string"
-                  }
-                }, 
-                "required": [
-                  "type"
-                ], 
-                "type": "object"
-              }, 
-              "type": "array"
-            }, 
-            "capacity": {
-              "id": "/properties/result/items/properties/capacity", 
-              "type": "string"
-            }, 
-            "changes": {
-              "id": "/properties/result/items/properties/changes", 
-              "items": {
-                "additionalProperties": true, 
-                "id": "/properties/result/items/properties/changes/items", 
-                "properties": {
-                  "type": {
-                    "id": "/properties/result/items/properties/changes/items/properties/type", 
-                    "type": "string"
-                  }
-                }, 
-                "required": [
-                  "type"
-                ], 
-                "type": "object"
-              }, 
-              "type": "array"
-          }, 
-           "distance": {
-             "id": "/properties/result/items/properties/distance", 
-             "type": ["number", "string"]
-            }, 
-           "duration": {
-             "id": "/properties/result/items/properties/duration", 
-             "type": "number"
-           }, 
-           "pickup": {
-              "id": "/properties/result/items/properties/pickup", 
-              "additionalProperties": true, 
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "additionalProperties": true,
+  "definitions": {},
+  "id": "http://example.com/example.json",
+  "properties": {
+    "result": {
+      "id": "/properties/result",
+      "items": {
+        "additionalProperties": true,
+        "id": "/properties/result/items",
+        "properties": {
+          "ageGroups": {
+            "id": "/properties/result/items/properties/ageGroups",
+            "items": {
+              "additionalProperties": true,
+              "id": "/properties/result/items/properties/ageGroups/items",
               "properties": {
-                "meetingPoint": {
-                  "id": "/properties/result/items/properties/pickup/properties/meetingPoint", 
+                "count": {
+                  "id": "/properties/result/items/properties/ageGroups/items/properties/count",
+                  "type": "integer"
+                },
+                "maxAge": {
+                  "id": "/properties/result/items/properties/ageGroups/items/properties/maxAge",
+                  "type": "integer"
+                },
+                "minAge": {
+                  "id": "/properties/result/items/properties/ageGroups/items/properties/minAge",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "maxAge",
+                "minAge",
+                "count"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "cancellation": {
+            "id": "/properties/result/items/properties/cancellation",
+            "items": {
+              "additionalProperties": true,
+              "id": "/properties/result/items/properties/cancellation/items",
+              "properties": {
+                "type": {
+                  "id": "/properties/result/items/properties/cancellation/items/properties/type",
                   "type": "string"
-                }, 
-               "type": {
-                 "id": "/properties/result/items/properties/pickup/properties/type", 
-                 "type": "string"
-               }, 
-               "waitingTime": {
-                 "id": "/properties/result/items/properties/pickup/properties/waitingTime", 
-                 "type": "integer"
-               },
-               "meetupInstructions": {
-                  "id": "/properties/result/items/properties/pickup/properties/meetupInstructions", 
-                  "items": {
-                    "additionalProperties": true, 
-                    "id": "/properties/result/items/properties/pickup/properties/meetupInstructions/items", 
-                    "properties": {
-                      "lang": {
-                       "id": "/properties/result/items/properties/pickup/properties/meetupInstructions/items/properties/lang", 
-                       "type": "string"
-                      }, 
-                     "text": {
-                       "id": "/properties/result/items/properties/pickup/properties/meetupInstructions/items/properties/text", 
-                       "type": "string"
-                     }
-                   }, 
-                   "required": [
-                     "lang", 
-                     "text"
-                   ], 
-                   "type": "object"
-                 }, 
-                 "type": "array"
-               },
-             }, 
-             "type": "object"
-           }, 
-
-           "price": {
-             "additionalProperties": true, 
-             "id": "/properties/result/items/properties/price", 
-             "properties": {
-               "included": {
-                 "id": "/properties/result/items/properties/price/properties/included", 
-                 "items": {
-                   "id": "/properties/result/items/properties/price/properties/included/items", 
-                   "type": "string"
-                 }, 
-                 "type": "array"
-               }, 
-               "services": {
-                 "id": "/properties/result/items/properties/price/properties/services", 
-                 "type": "number"
-               }, 
-               "supplier": {
-                 "id": "/properties/result/items/properties/price/properties/supplier", 
-                 "type": "number"
-               }, 
-               "total": {
-                 "id": "/properties/result/items/properties/price/properties/total", 
-                 "type": "number"
-               }
-             }, 
-             "required": [
-              "included", 
-               "total", 
-               "services", 
-               "supplier"
-             ], 
-             "type": "object"
-           }, 
-           "product": {
-             "additionalProperties": true, 
-             "id": "/properties/result/items/properties/product", 
-             "properties": {
-               "bags": {
-                 "id": "/properties/result/items/properties/product/properties/bags", 
-                 "type": "integer"
-               }, 
-               "category": {
-                 "id": "/properties/result/items/properties/product/properties/category", 
-                 "type": "integer"
-               }, 
-               "makeModel": {
-                 "id": "/properties/result/items/properties/product/properties/makeModel", 
-                 "type": "string"
-               }, 
-               "pax": {
-                 "id": "/properties/result/items/properties/product/properties/pax", 
-                 "type": "integer"
-               }, 
-               "properties": {
-                 "id": "/properties/result/items/properties/product/properties/properties", 
-                    "items": {
-                   "additionalProperties": true, 
-                   "id": "/properties/result/items/properties/product/properties/properties/items", 
-                   "properties": {
-                     "numberValue": {
-                       "id": "/properties/result/items/properties/product/properties/properties/items/properties/numberValue", 
-                       "type": "integer"
-                     }, 
-                     "type": {
-                       "id": "/properties/result/items/properties/product/properties/properties/items/properties/type", 
-                       "type": "integer"
-                     }
-                   }, 
-                   "required": [
-                     "type", 
-                     "numberValue"
-                   ], 
-                   "type": "object"
-                 }, 
-                 "type": "array"
-               }, 
-               "type": {
-                 "id": "/properties/result/items/properties/product/properties/type", 
-                 "type": "integer"
-               }
-             }, 
-             "required": [
-               "properties", 
-               "type", 
-               "makeModel", 
-               "pax", 
-               "bags", 
-               "category"
-             ], 
-             "type": "object"
-           }, 
-           "rateId": {
-             "id": "/properties/result/items/properties/rateId", 
-             "type": "string"
-           }, 
-           "supplierPricingRefId": {
-             "id": "/properties/result/items/properties/supplierPricingRefId", 
-             "type": "string"
-           }, 
-           "terms": {
-             "id": "/properties/result/items/properties/terms", 
-             "type": "string"
-           }, 
-           "validUntil": {
-             "id": "/properties/result/items/properties/validUntil", 
-             "type": "string"
-           }
-         }, 
-         "required": [
-           "cancellation", 
-           "changes", 
-           "validUntil", 
-           "supplierPricingRefId", 
-           "terms",  
-           "pickup", 
-           "duration", 
-           "price", 
-           "capacity", 
-           "rateId", 
-            "product", 
-           "distance"
-         ], 
-         "type": "object"
-       }, 
-       "type": "array"
-     }, 
-     "status": {
-       "id": "/properties/status", 
-       "type": "string"
-     }
-   }, 
-   "required": [
-     "result", 
-     "status"
-   ], 
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "capacity": {
+            "id": "/properties/result/items/properties/capacity",
+            "type": "string"
+          },
+          "changes": {
+            "id": "/properties/result/items/properties/changes",
+            "items": {
+              "additionalProperties": true,
+              "id": "/properties/result/items/properties/changes/items",
+              "properties": {
+                "type": {
+                  "id": "/properties/result/items/properties/changes/items/properties/type",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "distance": {
+            "id": "/properties/result/items/properties/distance",
+            "type": [
+              "number",
+              "string"
+            ]
+          },
+          "duration": {
+            "id": "/properties/result/items/properties/duration",
+            "type": "number"
+          },
+          "pickup": {
+            "id": "/properties/result/items/properties/pickup",
+            "additionalProperties": true,
+            "properties": {
+              "meetingPoint": {
+                "id": "/properties/result/items/properties/pickup/properties/meetingPoint",
+                "type": "string"
+              },
+              "type": {
+                "id": "/properties/result/items/properties/pickup/properties/type",
+                "type": "string"
+              },
+              "waitingTime": {
+                "id": "/properties/result/items/properties/pickup/properties/waitingTime",
+                "type": "integer"
+              },
+              "meetupInstructions": {
+                "id": "/properties/result/items/properties/pickup/properties/meetupInstructions",
+                "items": {
+                  "additionalProperties": true,
+                  "id": "/properties/result/items/properties/pickup/properties/meetupInstructions/items",
+                  "properties": {
+                    "lang": {
+                      "id": "/properties/result/items/properties/pickup/properties/meetupInstructions/items/properties/lang",
+                      "type": "string"
+                    },
+                    "text": {
+                      "id": "/properties/result/items/properties/pickup/properties/meetupInstructions/items/properties/text",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "lang",
+                    "text"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "price": {
+            "additionalProperties": true,
+            "id": "/properties/result/items/properties/price",
+            "properties": {
+              "included": {
+                "id": "/properties/result/items/properties/price/properties/included",
+                "items": {
+                  "id": "/properties/result/items/properties/price/properties/included/items",
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "services": {
+                "id": "/properties/result/items/properties/price/properties/services",
+                "type": "number"
+              },
+              "supplier": {
+                "id": "/properties/result/items/properties/price/properties/supplier",
+                "type": "number"
+              },
+              "total": {
+                "id": "/properties/result/items/properties/price/properties/total",
+                "type": "number"
+              }
+            },
+            "required": [
+              "included",
+              "total",
+              "supplier"
+            ],
+            "type": "object"
+          },
+          "product": {
+            "additionalProperties": true,
+            "id": "/properties/result/items/properties/product",
+            "properties": {
+              "bags": {
+                "id": "/properties/result/items/properties/product/properties/bags",
+                "type": "integer"
+              },
+              "category": {
+                "id": "/properties/result/items/properties/product/properties/category",
+                "type": "integer"
+              },
+              "makeModel": {
+                "id": "/properties/result/items/properties/product/properties/makeModel",
+                "type": "string"
+              },
+              "pax": {
+                "id": "/properties/result/items/properties/product/properties/pax",
+                "type": "integer"
+              },
+              "properties": {
+                "id": "/properties/result/items/properties/product/properties/properties",
+                "items": {
+                  "additionalProperties": true,
+                  "id": "/properties/result/items/properties/product/properties/properties/items",
+                  "properties": {
+                    "numberValue": {
+                      "id": "/properties/result/items/properties/product/properties/properties/items/properties/numberValue",
+                      "type": "integer"
+                    },
+                    "type": {
+                      "id": "/properties/result/items/properties/product/properties/properties/items/properties/type",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "numberValue"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "type": {
+                "id": "/properties/result/items/properties/product/properties/type",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "properties",
+              "type",
+              "makeModel",
+              "pax",
+              "bags",
+              "category"
+            ],
+            "type": "object"
+          },
+          "rateId": {
+            "id": "/properties/result/items/properties/rateId",
+            "type": "string"
+          },
+          "supplierPricingRefId": {
+            "id": "/properties/result/items/properties/supplierPricingRefId",
+            "type": "string"
+          },
+          "terms": {
+            "id": "/properties/result/items/properties/terms",
+            "type": "string"
+          },
+          "validUntil": {
+            "id": "/properties/result/items/properties/validUntil",
+            "type": "string"
+          }
+        },
+        "required": [
+          "validUntil",
+          "supplierPricingRefId",
+          "pickup",
+          "duration",
+          "price",
+          "capacity",
+          "product",
+          "distance"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "status": {
+      "id": "/properties/status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "result",
+    "status"
+  ],
   "type": "object"
- }
+}

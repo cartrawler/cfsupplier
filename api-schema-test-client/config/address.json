@@ -1,140 +1,147 @@
 {
-"add0"    :    {
-
-        "addresses":[
-                {
-                  "location": {
-                         "lat" : 51.9196, 
-                         "lng" : 4.4625
-                        },
-                  "address": "Oostervantstraat 12B, 3021 PV Rotterdam, Netherlands",
-                  "category":"Address",
-                  "type": 1
-
-                },
-
-               {
-                  "location": {
-                         "lat" :51.8955,
-                         "lng" :  4.4934
-                        },
-                  "address": "Mijnsherenlaan 16, 3081 CA Rotterdam, Netherlands",
-                  "category":"Address",
-                  "type": 2
-
-                }
-          ],
-        "ageGroups":[{"minAge":0,"maxAge":100,"count":1}]
+  "add0": {
+    "addresses": [
+      {
+        "location": {
+          "lat": 51.9196,
+          "lng": 4.4625
+        },
+        "address": "Oostervantstraat 12B, 3021 PV Rotterdam, Netherlands",
+        "category": "Address",
+        "type": 1
+      },
+      {
+        "location": {
+          "lat": 51.8955,
+          "lng": 4.4934
+        },
+        "address": "Mijnsherenlaan 16, 3081 CA Rotterdam, Netherlands",
+        "category": "Address",
+        "type": 2
+      }
+    ],
+    "ageGroups": [
+      {
+        "minAge": 0,
+        "maxAge": 100,
+        "count": 1
+      }
+    ]
   },
-  "add1"    :    {
-
-        "addresses":[
-                {
-                  "location": {
-                         "lat" : 52.308613,
-                         "lng" : 4.763889 
-                        },
-                  "address": "(AMS) - Schiphol Airport, Amsterdam, Netherlands",
-                  "category":"Address",
-                  "type": 1
-
-                },
-
-               {
-                  "location": {
-                         "lat" :52.3618861,
-                         "lng" :  4.910476799999969
-                        },
-                  "address": "Sarphatistraat 117, 1018 GB, Amsterdam, Netherlands",
-                  "category":"Address",
-                  "type": 2
-
-                }
-          ],
-        "ageGroups":[{"minAge":0,"maxAge":100,"count":1}]
+  "add1": {
+    "addresses": [
+      {
+        "location": {
+          "lat": 52.308613,
+          "lng": 4.763889
+        },
+        "address": "(AMS) - Schiphol Airport, Amsterdam, Netherlands",
+        "category": "Address",
+        "type": 1
+      },
+      {
+        "location": {
+          "lat": 52.3618861,
+          "lng": 4.910476799999969
+        },
+        "address": "Sarphatistraat 117, 1018 GB, Amsterdam, Netherlands",
+        "category": "Address",
+        "type": 2
+      }
+    ],
+    "ageGroups": [
+      {
+        "minAge": 0,
+        "maxAge": 100,
+        "count": 1
+      }
+    ]
   },
-  "add2"    :    {
-
-        "addresses":[
-                {
-                  "location": {
-                         "lat" : 51.957913,
-                         "lng" :4.441137
-                        },
-                  "address": "(RTM) - Rotterdam The Hague Airport, Rotterdam, Netherlands",
-                  "category":"Address",
-                  "type": 1
-
-                },
-
-               {
-                  "location": {
-                         "lat" :51.8956,
-                         "lng" :  4.493
-                        },
-                  "address": "Mijnsherenlaan 47A, 3081 GC Rotterdam, Netherlands",
-                  "category":"Address",
-                  "type": 2
-
-                }
-          ],
-
-        "ageGroups":[{"minAge":0,"maxAge":100,"count":1}]
+  "add2": {
+    "addresses": [
+      {
+        "location": {
+          "lat": 51.957913,
+          "lng": 4.441137
+        },
+        "address": "(RTM) - Rotterdam The Hague Airport, Rotterdam, Netherlands",
+        "category": "Address",
+        "type": 1
+      },
+      {
+        "location": {
+          "lat": 51.8956,
+          "lng": 4.493
+        },
+        "address": "Mijnsherenlaan 47A, 3081 GC Rotterdam, Netherlands",
+        "category": "Address",
+        "type": 2
+      }
+    ],
+    "ageGroups": [
+      {
+        "minAge": 0,
+        "maxAge": 100,
+        "count": 1
+      }
+    ]
   },
-  "add3"    :    {
-
-        "addresses":[
-                {
-                  "location": {
-                         "lat" :52.308613,
-                         "lng" : 4.763889 
-                        },
-                  "address": "(AMS) - Schiphol Airport, Amsterdam, Netherlands",
-                  "category":"Address",
-                  "type": 1
-
-                },
-
-               {
-                  "location": {
-                         "lat" :52.3856225,
-                         "lng" :  4.834443400000055
-                        },
-                  "address": "Arlandaweg 10-14, 1043 EW, Amsterdam, Netherlands",
-                  "category":"Address",
-                  "type": 2
-
-                }
-          ],
-
-        "ageGroups":[{"minAge":0,"maxAge":100,"count":1}]
+  "add3": {
+    "addresses": [
+      {
+        "location": {
+          "lat": 52.308613,
+          "lng": 4.763889
+        },
+        "address": "(AMS) - Schiphol Airport, Amsterdam, Netherlands",
+        "category": "Address",
+        "type": 1
+      },
+      {
+        "location": {
+          "lat": 52.3856225,
+          "lng": 4.834443400000055
+        },
+        "address": "Arlandaweg 10-14, 1043 EW, Amsterdam, Netherlands",
+        "category": "Address",
+        "type": 2
+      }
+    ],
+    "ageGroups": [
+      {
+        "minAge": 0,
+        "maxAge": 100,
+        "count": 1
+      }
+    ]
   },
-  "add4"    :    {
-
-        "addresses":[
-                {
-                  "location": {
-                         "lat" : 52.38560099999999, 
-                         "lng" : 4.847059700000045
-                        },
-                  "address": "Molenwerf 1, 1014 AG, Amsterdam, Netherlands",
-                  "category":"Address",
-                  "type": 1
-
-                },
-
-               {
-                  "location": {
-                         "lat" :52.308613,
-                         "lng" : 4.763889 
-                        },
-                  "address": "(AMS) - Schiphol Airport, Amsterdam, Netherlands",
-                  "category":"Address",
-                  "type": 2
-
-                }
-          ],
-
-        "ageGroups":[{"minAge":0,"maxAge":100,"count":1}]
+  "add4": {
+    "addresses": [
+      {
+        "location": {
+          "lat": 52.38560099999999,
+          "lng": 4.847059700000045
+        },
+        "address": "Molenwerf 1, 1014 AG, Amsterdam, Netherlands",
+        "category": "Address",
+        "type": 1
+      },
+      {
+        "location": {
+          "lat": 52.308613,
+          "lng": 4.763889
+        },
+        "address": "(AMS) - Schiphol Airport, Amsterdam, Netherlands",
+        "category": "Address",
+        "type": 2
+      }
+    ],
+    "ageGroups": [
+      {
+        "minAge": 0,
+        "maxAge": 100,
+        "count": 1
+      }
+    ]
   }
 }

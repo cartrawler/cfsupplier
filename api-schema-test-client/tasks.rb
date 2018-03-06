@@ -44,5 +44,10 @@ module Tasks
     def self.validate(type, schema, data)
       SchemaValidation::Setup.instance.target.test(type, schema, data)
     end
+
+    def self.fully_validate(type, schema, data)
+      SchemaValidation::Setup.instance.target.test_fully(type, schema, data)
+    end
+
   end
 end

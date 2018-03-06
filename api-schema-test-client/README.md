@@ -5,8 +5,6 @@ In the cartrawler platform, (taxi operators) supplier can be
 integrated in many ways and one of them is supplierApi where supplier
 build the system by following the instruction provided by cartrawler.
 
-Contact: gtdevsupport@cartrawler.com for  more information.
-
 # Purpose #
 
 

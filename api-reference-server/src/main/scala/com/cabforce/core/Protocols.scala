@@ -303,8 +303,8 @@ trait Protocols extends DefaultJsonProtocol {
   implicit val pickupOptionFormat : RootJsonFormat[PickupOption] = jsonFormat4(PickupOption.apply)
   implicit val createPropertyFormat : RootJsonFormat[CreateProperty] = jsonFormat2(CreateProperty.apply)
   implicit val passengerFormat : RootJsonFormat[Passenger] = jsonFormat3(Passenger.apply)
-  implicit val driveProductFormat : RootJsonFormat[DriveProduct] = jsonFormat5(DriveProduct.apply)
-  implicit val drivePriceFormat : RootJsonFormat[DrivePrice] = jsonFormat4(DrivePrice.apply)
+  implicit val driveProductFormat : RootJsonFormat[DriveProduct] = jsonFormat6(DriveProduct.apply)
+  implicit val drivePriceFormat : RootJsonFormat[DrivePrice] = jsonFormat5(DrivePrice.apply)
   implicit val createFormat : RootJsonFormat[Create] = jsonFormat14(Create.apply)
 
   implicit val bookingCreateResponseFormat : RootJsonFormat[BookingCreateResponse] = jsonFormat5(BookingCreateResponse.apply)
@@ -333,7 +333,7 @@ case class MeetupIntroductionSet(introduction: MeetupIntroduction)
 case class Pickup(`type`: String, meetingPoint : String, waitingTime: Int, meetupIntroduction : Option[MeetupIntroductionSet])
 case class Cancellation(`type`: String, maxTime: Int, percentage: Double)
 case class Changes(`type`: String, maxTime: Int, fixed: Double)
-case class Product(supplierPricingRefId: String, product: ProductType, price: Price, ageGroups: Option[Seq[AgeGroup]], rateId: Option[String], pickup: Pickup, capacity: String, duration: Int, distance: Int, terms: Option[String], cancellation: Option[Cancellation], changes: Option[Changes], validUntil: String)
+case class Product(supplierPricingRefId: String, product: ProductType, price: Price, ageGroups: Option[Seq[AgeGroup]], rateId: Option[String], pickup: Pickup, capacity: String, duration: Int, distance: Int, terms: Option[String], cancellation: Option[Seq[Cancellation]], changes: Option[Changes], validUntil: String)
 case class SearchResult(status: BookingStatusEnum, result: Option[Seq[Product]])
 
 // Booking creation request
@@ -341,13 +341,14 @@ case class Flight(flightNumber: String, trackingNumber: String, `type`: Int, dat
 case class ExtraWaitingTime(chargePerHour: String, minimumCharge: String)
 case class PickupOption(`type`: String, meetingPoint: String, waitingTime: String, extraWaitingTime: Option[ExtraWaitingTime])
 case class CreateProperty(leg: Option[String], reference: Option[String])
-case class Passenger(name: String, email: String, phone: String)
-case class DriveProduct(`type`: DriveType, category: DriveCategoryType, pax: Int, bags: Int, properties: Option[Seq[ProductProperty]])
-case class DrivePrice(supplier: Option[String], services: Option[String], total: String, currency: Option[String])
+case class Passenger(name: String, email: Option[String], phone: String)
+case class DriveProduct(`type`: DriveType, category: DriveCategoryType, pax: Int, bags: Int, properties: Option[Seq[ProductProperty]], makeModel: Option[String])
+case class DrivePrice(supplier: Option[String], service: Option[String], total: String, currency: Option[String], included: Option[Seq[String]])
 case class Create(bookingRefId: String, shortId: String, supplierPricingRefId: Option[String],
-                  pickupDateTime: String, addresses: Seq[Address], flights: Option[Seq[Flight]], pickupOption: Option[PickupOption],
-                  pickupDetails: Option[String], createProperty: Option[CreateProperty], passengers : Seq[Passenger], notes: String, product: DriveProduct,
-                  price: DrivePrice, ageGroups: Option[Seq[AgeGroup]] )
+                  pickupDateTime: String, addresses: Seq[Address], flights: Option[Seq[Flight]],
+                  pickupOption: Option[PickupOption], pickupDetails: Option[String], createProperty: Option[CreateProperty],
+                  passengers : Seq[Passenger], notes: Option[String], product: DriveProduct,
+                  price: DrivePrice, ageGroups: Option[Seq[AgeGroup]])
 
 // Default response
 case class BookingCreateResponse(status: BookingStatusEnum, supplierBookingRefId: String, latestConfirmationTime: String, reason: Option[String], reasonType: Option[Int])

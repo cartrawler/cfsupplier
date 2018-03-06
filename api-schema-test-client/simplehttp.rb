@@ -3,14 +3,24 @@ require 'uri'
 require 'open-uri'
 require 'json'
 require 'date'
+
 module SimpleHttp
+
+  SSL_VERIFY_MODE = OpenSSL::SSL::VERIFY_NONE
+  #SSL_VERIFY_MODE = OpenSSL::SSL::VERIFY_PEER
+
   # Class
   class HttpBase
     def ssl(http)
-      http.use_ssl = true
+      if SimpleHttp::SSL_VERIFY_MODE == OpenSSL::SSL::VERIFY_PEER
+        http.use_ssl = true
+        http.ssl_version = :TLSv1
+        http.verify_mode = SimpleHttp::SSL_VERIFY_MODE
+      end
       http
     end
   end
+
   # Class
   class HttpGet < HttpBase
     def get(uri)
