@@ -286,8 +286,8 @@ trait Protocols extends DefaultJsonProtocol {
   implicit val searchRequestFormat : RootJsonFormat[SearchRequest] = jsonFormat3(SearchRequest.apply)
 
 
-  implicit val meetupIntroductionFormat : RootJsonFormat[MeetupIntroduction] = jsonFormat2(MeetupIntroduction.apply)
-  implicit val meetupIntroductionSetFormat : RootJsonFormat[MeetupIntroductionSet] = jsonFormat1(MeetupIntroductionSet.apply)
+  implicit val meetupIntroductionFormat : RootJsonFormat[MeetupInstruction] = jsonFormat2(MeetupInstruction.apply)
+//  implicit val meetupIntroductionSetFormat : RootJsonFormat[MeetupIntroductionSet] = jsonFormat1(MeetupIntroductionSet.apply)
 
   implicit val productPropertyFormat : RootJsonFormat[ProductProperty] = jsonFormat3(ProductProperty.apply)
   implicit val productTypeFormat : RootJsonFormat[ProductType] = jsonFormat6(ProductType.apply)
@@ -328,9 +328,9 @@ case class SearchRequest(pickupDateTime: String, addresses: Seq[Address], ageGro
 case class ProductProperty(`type`: DrivePropertyType, numberValue : Option[Int], stringValue: Option[String])
 case class ProductType(`type` : DriveType, category: DriveCategoryType, pax: Int, bags: Int, properties: Option[Seq[ProductProperty]], makeModel: String)
 case class Price(supplier: Double, service: Double, total: Double, included : Seq[String])
-case class MeetupIntroduction(lang: String, text: String)
-case class MeetupIntroductionSet(introduction: MeetupIntroduction)
-case class Pickup(`type`: String, meetingPoint : String, waitingTime: Int, meetupIntroduction : Option[MeetupIntroductionSet])
+case class MeetupInstruction(lang: String, text: String)
+//case class MeetupIntroductionSet(introduction: MeetupInstruction)
+case class Pickup(`type`: String, meetingPoint : String, waitingTime: Int, meetupInstructions : Option[Seq[MeetupInstruction]])
 case class Cancellation(`type`: String, maxTime: Int, percentage: Double)
 case class Changes(`type`: String, maxTime: Int, fixed: Double)
 case class Product(supplierPricingRefId: String, product: ProductType, price: Price, ageGroups: Option[Seq[AgeGroup]], rateId: Option[String], pickup: Pickup, capacity: String, duration: Int, distance: Int, terms: Option[String], cancellation: Option[Seq[Cancellation]], changes: Option[Changes], validUntil: String)

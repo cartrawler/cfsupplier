@@ -40,7 +40,7 @@ class ReferenceApiSearchFlow() {
           ProductProperty(WaterBottles, Option(1), Option.empty))), "Tesla Model X"), Price(km, meetAndGreet, km + meetAndGreet, Seq("Terms of service defined")),
       Option(searchRequest.ageGroups.getOrElse(Seq(AgeGroup(0, 100, 100)))),
       Option.empty,
-      Pickup("meet&greet", "TMX Cafe Helsinki", 30, Option.empty),
+      Pickup("meet&greet", "TMX Cafe Helsinki", 30, Option(Seq(MeetupInstruction("en","This is a sample MG text from cfapiserver."),MeetupInstruction("fi","Se on MG texti.")))),  //Option.empty
       "good", 30, 60,
       Option.empty,
       Option(Seq(Cancellation("free", 120, 100))),
