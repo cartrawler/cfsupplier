@@ -329,7 +329,6 @@ case class ProductProperty(`type`: DrivePropertyType, numberValue : Option[Int],
 case class ProductType(`type` : DriveType, category: DriveCategoryType, pax: Int, bags: Int, properties: Option[Seq[ProductProperty]], makeModel: String)
 case class Price(supplier: Double, service: Double, total: Double, included : Seq[String])
 case class MeetupInstruction(lang: String, text: String)
-//case class MeetupIntroductionSet(introduction: MeetupInstruction)
 case class Pickup(`type`: String, meetingPoint : String, waitingTime: Int, meetupInstructions : Option[Seq[MeetupInstruction]])
 case class Cancellation(`type`: String, maxTime: Int, percentage: Double)
 case class Changes(`type`: String, maxTime: Int, fixed: Double)
